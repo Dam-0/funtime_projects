@@ -3,8 +3,8 @@ from binance.client import Client
 import time
 import os
 
-api_key = "vZCzPXIIhkBH9XObfMbIJoyoguB55VIfD85xdzbOrLREqBNuPgXKWeCdkrIGOacZ"
-api_secret = "kpLJOxigXpjTA4vc3abqturOZ2zlEZdXOLKyJyvNUSWG3uCbIoSCN3N6kRn6Er3J"
+api_key = "x"
+api_secret = "x"
 
 client = Client(api_key, api_secret)
 

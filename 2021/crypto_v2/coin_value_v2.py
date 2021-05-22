@@ -1,8 +1,8 @@
 #pip3 install binance-python
 
 from binance.client import Client
-api_key="vZCzPXIIhkBH9XObfMbIJoyoguB55VIfD85xdzbOrLREqBNuPgXKWeCdkrIGOacZ"		#Replace this with your own
-api_secret="kpLJOxigXpjTA4vc3abqturOZ2zlEZdXOLKyJyvNUSWG3uCbIoSCN3N6kRn6Er3J"	#Replace this with your own
+api_key="x"		#Replace this with your own
+api_secret="x"	#Replace this with your own
 client = Client(api_key, api_secret)
 
 

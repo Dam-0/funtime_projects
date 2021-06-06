@@ -1,0 +1,81 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\graphicspath{ {$HOME/pictures/} }
+
+\title{Example Document}
+\author{Damien Peters}
+\date{July 2021}
+
+\begin{document}
+
+\maketitle
+
+This is an example document using \LaTeX{} for creating a document.
+
+
+%This a comment
+
+%This is an example of using font tools
+This is an example of using \textbf{bold text} in a sentence.\\
+This is an example of using \underline{underlined text} in a sentence.\\
+This is an example of using \textit{italics text} in a sentence.\\
+This is an example of using \textbf{\underline{underlined bold text}} in a sentence.
+\par
+%This is an example of using images
+
+
+This is an example of using an image in \LaTeX{}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{random}
+	\caption{A random picture}
+	\label{fig:random1}
+\end{figure}
+\par
+\newpage
+
+This is example of using lists in \LaTeX{}.
+
+\begin{itemize}
+	\item This is the first dot point
+	\item This can be of any length
+	\begin{itemize}
+		\item Nested dot
+	\end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+	\item This is the first enumerated point
+	\item This can be of any length
+	\begin{enumerate}
+		\item Nested enumerate
+	\end{enumerate}
+\end{enumerate}
+\par
+
+Table \ref{table:data} is an example of referenced \LaTeX{} elements.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{||c c c||} 
+ \hline
+ ID & Name & Age \\ [0.5ex] 
+ \hline\hline
+ 1 & Damo & !30 \\ 
+ 2 & Not Damo & old  \\
+ 3 & \textbf{Chad} & 21 \\ [1ex] 
+ \hline
+\end{tabular}
+\caption{Table to test captions and labels}
+\label{table:data}
+\end{table}
+
+\end{document}
+
+

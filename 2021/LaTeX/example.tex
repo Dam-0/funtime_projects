@@ -1,6 +1,19 @@
+%!TEX program = xelatex
+
 \documentclass[12pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
+\usepackage{graphicx, hyperref}
+
+
+\usepackage{fontspec}
+\setsansfont[
+  BoldFont=AmaticSC-Bold.ttf
+]{AmaticSC-Regular.ttf}
+
+\Large{\sffamily Hello World}
+
+
+
 
 %hyperref is a great package. Allows you to add in URL's and links to other places on the page
 
@@ -12,7 +25,7 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
-\graphicspath{ {$HOME/pictures/} }
+%\graphicspath{ {$HOME/pictures/} }
 
 \title{Example Document}
 \author{Damien Peters}
@@ -40,7 +53,7 @@ This is an example of using an image in \LaTeX{}.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{random}
+	\href{wget https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg}{random.jpg}
 	\caption{A random picture}
 	\label{fig:random1}
 \end{figure}

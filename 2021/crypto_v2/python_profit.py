@@ -9,13 +9,13 @@ api_secret = "x"
 client = Client(api_key, api_secret)
 
 investors = {
-    "Jake": {
-        "price": 4500,
-        "coins": 11504.66
+    "John": {
+        "price": x,
+        "coins": x
     },
-    "Damo": {
-        "price": 106.92,
-        "coins": 734.34
+    "Carl": {
+        "price": y,
+        "coins": y
     }
 }
 

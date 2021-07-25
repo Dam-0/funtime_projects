@@ -1,5 +1,5 @@
-spent=("66.18")
-coins=("529.5")
+spent=("x")
+coins=("x")
 doge_value=`python3 coin_value.py`
 
 current_value=$(echo "$coins*$doge_value" | bc)

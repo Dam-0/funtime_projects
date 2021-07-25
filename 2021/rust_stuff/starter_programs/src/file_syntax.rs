@@ -1,5 +1,9 @@
 use std::io;
 
+mod util;
+
+use util::input;
+
 fn main() -> io::Result<()> {
     println!("Hello, world!");
 
@@ -54,13 +58,4 @@ fn print_hello(name: &str) {
     println!("Hello {}!", name)
 }
 
-/// # Input from user
-/// Get some strings from the user
-fn input(prompt: &str) -> io::Result<String> {
-    println!("{}", prompt);
-    let mut input_value = String::new();
-    io::stdin() //inefficant. Should be using one Stdin handle 
-        .read_line(&mut input_value)?;
-    Ok(input_value.trim().to_string())
-}
 

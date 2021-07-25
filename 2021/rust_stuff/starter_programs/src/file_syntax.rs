@@ -44,6 +44,7 @@ fn main() -> io::Result<()> {
     print_hello("Damo");
     print_hello("Aido");
 
+    // read user input
     let name = input( "What is your name?")?;
 
     // remove end ; to make it return statement

@@ -20,9 +20,9 @@ fn main() -> io::Result<()> {
         let user_second_num = input_int("Enter second Number: ")?;
 
         // Converting string to integer
-        let first_num: u32 = user_first_num.trim().parse().ok().expect("test");
+        let first_num: i32 = user_first_num.trim().parse().ok().unwrap();
 
-        let second_num: u32 = user_second_num.trim().parse().ok().expect("test");
+        let second_num: i32 = user_second_num.trim().parse().ok().unwrap();
 
         match user_choice.as_str() {
             "1" => println!("sum is: {}", first_num + second_num),

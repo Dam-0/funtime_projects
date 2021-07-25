@@ -1,9 +1,10 @@
 use std::io;
+use std::io::Write;
 
 /// # Input from user
 /// Get some strings from the user
 pub fn input_str(prompt: &str) -> io::Result<String> {
-    println!("{}", prompt);
+    print!("{}", prompt);
     let mut input_value = String::new();
     io::stdin() //inefficant. Should be using one stdin handle 
         .read_line(&mut input_value)?;
@@ -15,5 +16,6 @@ pub fn input_int(prompt: &str) -> io::Result<String> {
     let mut input_value = String::new();
     io::stdin() //inefficant. Should be using one stdin handle 
         .read_line(&mut input_value)?;
+    io::stdout().flush()?;
     Ok(input_value)
 }

@@ -5,7 +5,7 @@ use std::io;
 pub fn input(prompt: &str) -> io::Result<String> {
     println!("{}", prompt);
     let mut input_value = String::new();
-    io::stdin() //inefficant. Should be using one Stdin handle 
+    io::stdin() //inefficant. Should be using one stdin handle 
         .read_line(&mut input_value)?;
     Ok(input_value.trim().to_string())
 }

@@ -16,6 +16,9 @@ fn main() -> io::Result<()> {
 
         let user_choice = input_str("> ")?;
 
+        // Todo
+        // Add if-statement for exit if 5
+
         let user_first_num = input_int("Enter first number: ")?;
         let user_second_num = input_int("Enter second Number: ")?;
 
@@ -29,7 +32,6 @@ fn main() -> io::Result<()> {
             "2" => println!("difference is: {}", first_num - second_num),
             "3" => println!("Multiply is: {}", first_num * second_num),
             "4" => println!("division is: {}", first_num / second_num),
-            "5" => return Ok(()),
             _ => println!("Choose something valid")
         }
     }

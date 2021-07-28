@@ -4,9 +4,10 @@ version = "0.1.0"
 edition = "2018"
 
 [[bin]]
-name = "calculator"
-path = "src/calculator.rs"
+name = "guess_game"
+path = "src/guess_game.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rand = "0.8.4"

@@ -2,7 +2,7 @@ use std::io;
 
 mod util;
 
-use util::input;
+use util::input_str::input;
 
 fn main() -> io::Result<()> {
     let mut items = Vec::new();

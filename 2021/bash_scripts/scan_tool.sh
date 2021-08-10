@@ -19,14 +19,12 @@ function error_check() {
 
 function host_scan() {
 #pings host
-rm /tmp/services 2>/dev/null
 fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
 
 #Checks if the Host is up
 	if [ "$?" = 0 ]; then
-
 		# if host is up scan services
-		nmap -sV "$ip" | grep -E "([0-9]{1,5})\/(tcp|udp)" >> /tmp/services
+		nmap -sV "$ip" | grep -E "([0-9]{1,5})\/(tcp|udp)" > /tmp/services
 		return 0
 	else
 		echo "Failed to find host"
@@ -38,10 +36,9 @@ fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
 function search_sploit(){
 
 	#Checks if services are found
-	echo $(wc -l /tmp/services | grep -o ^[1-9]) | read service_total
-	if [ "$service_total" == 0 ]; then
+	if [[ -z $(grep '[^[:space:]]' /tmp/services) ]]; then
+	
 		echo "No Services found on host"
-		$service_total
 		exit 1
 	fi
 
@@ -67,28 +64,10 @@ function search_sploit(){
 
 }
 
-#Adds loading animation
-function spinner()
-{
-    local pid=$!
-    local delay=0.75
-    local spinstr='|/-\'
-    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
-        local temp=${spinstr#?}
-        printf " [%c]  " "$spinstr"
-        local spinstr=$temp${spinstr%"$temp"}
-        sleep $delay
-        printf "\b\b\b\b\b\b"
-    done
-    printf "    \b\b\b\b"
-}
-
-
+# Calls the functions
 error_check
-host_scan &
-spinner
-search_sploit &
-spinner
+host_scan
+search_sploit
 
 
 cat vulnerabilities.txt

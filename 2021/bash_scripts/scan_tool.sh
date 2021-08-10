@@ -2,7 +2,7 @@
 
 ip="$1"
 
-error_check() {
+function error_check() {
 	#Checks if user input argument
 	if [ -z "$ip" ]; then
 		echo "Usage: scan_tool <ip>"
@@ -17,13 +17,16 @@ error_check() {
 	fi
 }
 
-host_scan() {
+function host_scan() {
 #pings host
+rm /tmp/services 2>/dev/null
 fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
 
 #Checks if the Host is up
 	if [ "$?" = 0 ]; then
-		nmap -sV "$ip" | grep -E "([0-9]{1,5})\/(tcp|udp)" > /tmp/services
+
+		# if host is up scan services
+		nmap -sV "$ip" | grep -E "([0-9]{1,5})\/(tcp|udp)" >> /tmp/services
 		return 0
 	else
 		echo "Failed to find host"
@@ -32,7 +35,7 @@ fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
 }
 
 #Checks services against search sploit
-search_sploit(){
+function search_sploit(){
 
 	#Checks if services are found
 	echo $(wc -l /tmp/services | grep -o ^[1-9]) | read service_total
@@ -50,21 +53,22 @@ search_sploit(){
 	fi
 
 	#Gets the services and versions
+
 	awk '{print $4" "$5}' < /tmp/services > /tmp/output
 
-	echo "==============================" > exploits.txt
-	echo "== Possible Vulnerabilities ==" >> exploits.txt
-	echo "==============================" >> exploits.txt
+	echo "==============================" > vulnerabilities.txt
+	echo "== Possible Vulnerabilities ==" >> vulnerabilities.txt
+	echo "==============================" >> vulnerabilities.txt
 
-	while IFS='' read LINE || [[ -n "${LINE}" ]]; do
-   		searchsploit ${LINE} | sed -e '1,2d' | head -n -2 >> exploits.txt
-   		echo "==" >> exploits.txt
+	while IFS='' read line; do
+   		searchsploit ${line} | sed -e '1,2d' | head -n -1 >> vulnerabilities.txt
+   		#echo "==" >> vulnerabilities.txt
 	done < /tmp/output
 
 }
 
 #Adds loading animation
-spinner()
+function spinner()
 {
     local pid=$!
     local delay=0.75
@@ -87,8 +91,8 @@ search_sploit &
 spinner
 
 
-cat exploits.txt
+cat vulnerabilities.txt
 
 echo ""
-echo "Check <exploits.txt> for results"
+echo "Check <vulnerabilities.txt> for results"
 exit 0

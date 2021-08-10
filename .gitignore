@@ -120,3 +120,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+2021/bash_scripts/exploits.txt
+2021/bash_scripts/vulnerabilities.txt

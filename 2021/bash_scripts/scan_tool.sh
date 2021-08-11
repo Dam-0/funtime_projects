@@ -87,18 +87,26 @@ function search_sploit(){
    		searchsploit ${line} --json >> results/"$ip".json
 
 		# formatting json file to be proper
+		# removes last line from file
 		sed -i '$ d' results/"$ip".json
+
+		# appends }, to the file
 		echo "}," >> results/"$ip".json
 
 	done < /tmp/output
 
-		#formatting continued
-		sed -ie '$s/},/}/' results/"$ip".json
-		sed 's/^/  /' results/"$ip".json
+		# formatting continued (cleans file up at the end)
+		# replaces the last }, with just } as it is the end
+		# indents everyline two spaces
+		# inserts [ on the first line
+		# inserts ] on the last line
 
+		sed -i -e '$s/},/}/' \
+			-e 's/^/  /' \
+			-i -e '1 i\[ '\
+			-i -e '$a]' results/"$ip".json
 
 }
-
 
 json_parser() {
 	if ! command -v jq > /dev/null 2>&1; then
@@ -108,7 +116,7 @@ json_parser() {
 		exit
 	fi
 
-	jq '.[]' results/$ip.json
+	#jq '.[]' results/$ip.json
 }
 
 
@@ -118,7 +126,7 @@ pre_run_test
 error_check
 host_scan
 search_sploit
-#json_parser
+json_parser
 
 echo ""
 echo "See the result folder for the relevant scan results"

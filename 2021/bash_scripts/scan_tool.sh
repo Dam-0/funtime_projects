@@ -105,14 +105,6 @@ function search_sploit(){
 			-e 's/^/    /' \
 			-i -e '1 i\['\
 			-i -e '$a]' results/"$ip".json
-
-		# indents every line with four spaces
-		# inserts { on the first line
-		# inserts } on the last line
-		#sed -e 's/^/    /'\
-		#	-i -e '1 i\{'\
-		#	-i -e '$a}' results/"$ip".json
-
 }
 
 json_parser() {

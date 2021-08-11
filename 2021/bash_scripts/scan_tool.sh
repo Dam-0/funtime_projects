@@ -36,8 +36,8 @@ function error_check() {
 }
 
 function host_scan() {
-# pings host
-fping -c1 -t300 $ip > /dev/null 2>&1
+	# pings host
+	fping -c1 -t300 $ip > /dev/null 2>&1
 
 # checks if the Host is up
 	if [ "$?" = 0 ]; then

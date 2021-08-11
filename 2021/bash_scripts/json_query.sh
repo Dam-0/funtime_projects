@@ -20,3 +20,9 @@ for i in "${my_array[@]}"; do
     done
     num=$(($num+1)) 
 done
+
+# TODO
+# 1. sed remove 1st /n and replace with " "
+# 2. add search_query to test1
+# 3. maybe more sed
+# 4. actually format json to look nice

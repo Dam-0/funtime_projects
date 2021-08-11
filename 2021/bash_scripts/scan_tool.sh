@@ -10,7 +10,7 @@ function pre_run_test(){
 
 	for package in ${!commands_used[@]};
 	do
-		if  ! command -v ${commands_used[$package]} > /dev/null 2>&1; then
+		if ! command -v ${commands_used[$package]} > /dev/null 2>&1; then
 			echo "${commands_used[$package]} not found"
 			local missing="1"
 		fi
@@ -36,8 +36,9 @@ function error_check() {
 }
 
 function host_scan() {
-	# pings host
-	fping -c1 -t300 $ip > /dev/null 2>&1
+
+# pings host
+	fping -c1 -t300 "$ip" > /dev/null 2>&1
 
 # checks if the Host is up
 	if [ "$?" = 0 ]; then
@@ -74,26 +75,40 @@ function search_sploit(){
 	awk '{print $4" "$5}' < /tmp/services > /tmp/output
 
 	# checks if files already exists and overwrites it to be blank
-	if [ -f ./results/$ip.json ]; then
-		rm results/$ip.json
-		touch results/$ip.json
+	if [ -f ./results/"$ip".json ]; then
+		rm results/"$ip".json
+		touch results/"$ip".json
 
 	else
-		touch results/$ip.json
+		touch results/"$ip".json
 	fi
 	
 	while IFS='' read line; do
-   		searchsploit ${line} --json >> results/$ip.json
+   		searchsploit ${line} --json >> results/"$ip".json
+
+		# formatting json file to be proper
+		sed -i '$ d' results/"$ip".json
+		echo "}," >> results/"$ip".json
+
 	done < /tmp/output
 
-	# runs files through json function
-	prettyjson ./results/$ip.json 
+		#formatting continued
+		sed -ie '$s/},/}/' results/"$ip".json
+		sed 's/^/  /' results/"$ip".json
+
 
 }
 
-# formats json files to be easier to read
-prettyjson() {
-    python -m json.tool "$1" > /dev/null 2>&1
+
+json_parser() {
+	if ! command -v jq > /dev/null 2>&1; then
+		echo
+		echo "Install <jq> to view JSON output else,"
+		echo "view raw files in the <results> folder"
+		exit
+	fi
+
+	jq '.[]' results/$ip.json
 }
 
 
@@ -103,7 +118,7 @@ pre_run_test
 error_check
 host_scan
 search_sploit
-
+#json_parser
 
 echo ""
 echo "See the result folder for the relevant scan results"

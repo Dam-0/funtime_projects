@@ -2,6 +2,24 @@
 
 ip="$1"
 
+# a list of all required packages for script to work
+commands_used=("fping" "nmap" "grep" "searchsploit" "awk")
+
+# function that checks for required packages
+function pre_run_test(){
+
+	for package in ${!commands_used[@]};
+	do
+		if  ! command -v ${commands_used[$package]} > /dev/null 2>&1; then
+			echo "${commands_used[$package]} not found"
+			local missing="1"
+		fi
+	done
+
+	# exits script if missing packages where found
+	[ ! $missing = 0 ] && echo "Please install missing packages" && exit 1
+}
+
 function error_check() {
 	# checks if user input argument
 	if [ -z "$ip" ]; then
@@ -60,7 +78,7 @@ function search_sploit(){
 	if [ -f ./results/$ip.json ]; then
 		rm results/$ip.json
 		touch results/$ip.json
-		
+
 	else
 		touch results/$ip.json
 	fi
@@ -82,6 +100,7 @@ prettyjson() {
 
 
 # calls the functions
+pre_run_test
 error_check
 host_scan
 search_sploit

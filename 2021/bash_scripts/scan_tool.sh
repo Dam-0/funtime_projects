@@ -97,18 +97,21 @@ function search_sploit(){
 
 		# formatting continued (cleans file up at the end)
 		# replaces the last }, with just } as it is the end
-		# indents everyline two spaces
-		# inserts [ on the first line
+		# indents every line four spaces
+		# inserts "services: [" on the first line
 		# inserts ] on the last line
 
 		sed -i -e '$s/},/}/' \
 			-e 's/^/    /' \
-			-i -e '1 i\"services": [ '\
+			-i -e '1 i\['\
 			-i -e '$a]' results/"$ip".json
 
-		sed -e 's/^/    /'\
-			-i -e '1 i\{'\
-			-i -e '$a}' results/"$ip".json
+		# indents every line with four spaces
+		# inserts { on the first line
+		# inserts } on the last line
+		#sed -e 's/^/    /'\
+		#	-i -e '1 i\{'\
+		#	-i -e '$a}' results/"$ip".json
 
 }
 

@@ -10,7 +10,22 @@ for item in "${my_array[@]}";do
     search_results=$(jq '.RESULTS_EXPLOIT[]."Title"' <<< "$item")
     exploit_location=$(jq '.RESULTS_EXPLOIT[]."Path"' <<< "$item")
     echo "Search Query:" $search_query >> /tmp/test
-    echo "Results: $search_results    Exploit_location: $exploit_location /n" >> /tmp/test
+    echo "Results: $search_results" >> /tmp/test
+    echo "Exploit_location: $exploit_location" >> /tmp/test
 
 done
 
+let num=0
+rm test1
+rm test2
+
+for i in "${my_array[@]}"; do 
+    let num2=0
+    until $num2 != $(jq -r ".[$num].RESULTS_EXPLOIT[$num2] | length ") do
+        jq -r ".[$num].RESULTS_EXPLOIT[$num2].Title" $file >> test1
+        jq -r ".[$num].RESULTS_EXPLOIT[$num2].Path" $file >> test2
+        echo $x
+        num2=$(($num2+1))
+    done
+    num=$(($num+1)) 
+done

@@ -102,9 +102,13 @@ function search_sploit(){
 		# inserts ] on the last line
 
 		sed -i -e '$s/},/}/' \
-			-e 's/^/  /' \
-			-i -e '1 i\[ '\
+			-e 's/^/    /' \
+			-i -e '1 i\"services": [ '\
 			-i -e '$a]' results/"$ip".json
+
+		sed -e 's/^/    /'\
+			-i -e '1 i\{'\
+			-i -e '$a}' results/"$ip".json
 
 }
 

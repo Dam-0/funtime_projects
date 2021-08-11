@@ -56,7 +56,6 @@ function search_sploit(){
 
 	# checks if services are found
 	if [[ -z $(grep '[^[:space:]]' /tmp/services) ]]; then
-	
 		echo "No Services found on host"
 		exit 1
 	fi

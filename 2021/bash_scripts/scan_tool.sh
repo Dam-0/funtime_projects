@@ -3,12 +3,12 @@
 ip="$1"
 
 function error_check() {
-	#Checks if user input argument
+	# checks if user input argument
 	if [ -z "$ip" ]; then
 		echo "Usage: scan_tool <ip>"
 		exit 1
 
-	#Checks if user input vaild IP Address
+	# checks if user input vaild IP Address
 	elif [[ "$ip" =~ ^(([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))\.){3}([1-9]?[0-9]|1[0-9][0-9]|2([0-4][0-9]|5[0-5]))$ ]]; then
 		return 0
 	else
@@ -18,12 +18,13 @@ function error_check() {
 }
 
 function host_scan() {
-#pings host
-fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
+# pings host
+fping -c1 -t300 $ip > /dev/null 2>&1
 
-#Checks if the Host is up
+# checks if the Host is up
 	if [ "$?" = 0 ]; then
-		# if host is up scan services
+
+		# gets the services and versions
 		nmap -sV "$ip" | grep -E "([0-9]{1,5})\/(tcp|udp)" > /tmp/services
 		return 0
 	else
@@ -32,46 +33,60 @@ fping -c1 -t300 $ip 2>/dev/null 1>/dev/null
 	fi
 }
 
-#Checks services against search sploit
+# checks services against search sploit
 function search_sploit(){
 
-	#Checks if services are found
+	# checks if services are found
 	if [[ -z $(grep '[^[:space:]]' /tmp/services) ]]; then
 	
 		echo "No Services found on host"
 		exit 1
 	fi
 
-	#checks json is correct format
+	# checks json is correct format
 	grep -q -E "([0-9]{1,5})\/(tcp|udp)" /tmp/services
 	if [[ $? != 0 ]]; then
 		echo "Error has occured in parsing the JSON file"
 		exit 1
 	fi
 
-	#Gets the services and versions
+	# checks if directory does not exist then creats it
+	[ ! -d ./results ] && mkdir results
 
+	# gets service names and services from results and stores them elsewhere
 	awk '{print $4" "$5}' < /tmp/services > /tmp/output
 
-	echo "==============================" > vulnerabilities.txt
-	echo "== Possible Vulnerabilities ==" >> vulnerabilities.txt
-	echo "==============================" >> vulnerabilities.txt
-
+	# checks if files already exists and overwrites it to be blank
+	if [ -f ./results/$ip.json ]; then
+		rm results/$ip.json
+		touch results/$ip.json
+		
+	else
+		touch results/$ip.json
+	fi
+	
 	while IFS='' read line; do
-   		searchsploit ${line} | sed -e '1,2d' | head -n -1 >> vulnerabilities.txt
-   		#echo "==" >> vulnerabilities.txt
+   		searchsploit ${line} --json >> results/$ip.json
 	done < /tmp/output
+
+	# runs files through json function
+	prettyjson ./results/$ip.json 
 
 }
 
-# Calls the functions
+# formats json files to be easier to read
+prettyjson() {
+    python -m json.tool "$1" > /dev/null 2>&1
+}
+
+
+
+# calls the functions
 error_check
 host_scan
 search_sploit
 
 
-cat vulnerabilities.txt
-
 echo ""
-echo "Check <vulnerabilities.txt> for results"
+echo "See the result folder for the relevant scan results"
 exit 0

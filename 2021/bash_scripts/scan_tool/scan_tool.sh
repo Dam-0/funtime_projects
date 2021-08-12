@@ -36,7 +36,6 @@ function error_check() {
 }
 
 function host_scan() {
-
 # pings host
 	fping -c1 -t300 "$ip" > /dev/null 2>&1
 

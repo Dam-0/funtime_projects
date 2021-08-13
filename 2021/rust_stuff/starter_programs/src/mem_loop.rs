@@ -1,8 +1,9 @@
 fn main() {
-    //let mut d: Vec<u64> = Vec::new();
-    for _ in 0..1200000000u64 {
-       // d.push(1);
+    let max = u32::MAX;
+    let mut d: Vec<u32> = Vec::new();
+
+    for _ in 0..max{
+       d.push(1);
     }
-    //println!("vec: {:?}", d);
-    println!("test")
+    println!("vec: {:?}", d);
 }

@@ -1,11 +1,10 @@
 use nixinfo::{cpu, device, distro, environment, gpu, hostname, kernel, memory, packages, terminal, uptime};
-use std::thread;
+//use std::thread;
 
 
 fn cpu_details() {
     println!("cpu name: {}", cpu().unwrap())
     //println!("cpu temp: {}", nixinfo::temp().unwrap())
-
 }
 
 fn device_details() {
@@ -49,24 +48,18 @@ fn kernel_details() {
 }
 
 
-
-
-
-
-
 fn main() {
     //let handle = thread::spawn(|| println!("packages No: {}", packages("apt").unwrap()));
-    package_details();
+    // package_details();
     cpu_details();
-    device_details();
+    // device_details();
     distro_details();
-    gpu_details();
+    // gpu_details();
     host_details();
     memory_details();
-    terminal_details();
-    uptime_details();
-    environment_details();
+    // terminal_details();
+    // uptime_details();
+    // environment_details();
     kernel_details();
-    //handle.join().unwrap();
-    
+    // handle.join().unwrap(); 
 }

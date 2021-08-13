@@ -16,6 +16,7 @@ dat
 *.txt
 *.log
 *.json
+*.lock
 
 # Distribution / packaging
 .Python
@@ -125,3 +126,4 @@ dmypy.json
 .pyre/
 2021/bash_scripts/exploits.txt
 2021/bash_scripts/vulnerabilities.txt
+2021/rust_stuff/starter_programs/Cargo.lock

@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2018"
 
 [[bin]]
-name = "guess_game"
-path = "src/guess_game.rs"
+name = "mem_loop"
+path = "src/mem_loop.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

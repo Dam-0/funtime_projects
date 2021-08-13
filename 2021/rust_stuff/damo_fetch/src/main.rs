@@ -55,8 +55,8 @@ fn kernel_details() {
 
 
 fn main() {
-
-    thread::spawn(|| {package_details()});
+    //let handle = thread::spawn(|| println!("packages No: {}", packages("apt").unwrap()));
+    package_details();
     cpu_details();
     device_details();
     distro_details();
@@ -67,5 +67,6 @@ fn main() {
     uptime_details();
     environment_details();
     kernel_details();
+    //handle.join().unwrap();
     
 }

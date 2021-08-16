@@ -58,3 +58,10 @@ fn main() {
     environment_details();
     uptime_details();
 }
+
+/*TODO
+|Auto select proper package manager|
+|Skip any info that would fail|
+|Fix any missing info|
+|Pretty up output|
+|SPEEED| */

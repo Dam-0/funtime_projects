@@ -1,3 +1,15 @@
+
+
+use std::fs;
+use std::fs::File;
+use regex::Regex;
+
+
+
+
+use std::io::prelude::*;
+use std::io::Error;
+
 fn cpu_details() {
     println!("CPU: {}", nixinfo::cpu().unwrap());
    // println!("cpu temp: {}", nixinfo::temp().unwrap());
@@ -45,6 +57,52 @@ fn kernel_details() {
 }
 
 
+fn os_release() -> Result<String, Error> {
+        let re = Regex::new(r#"^ID_LIKE=(.*)$"#).unwrap();
+        let mut s = String::new();
+        File::open("/etc/os-release")?.read_to_string(&mut s)?;
+        s.pop(); // pop '\n'
+        let caps = re.captures(&mut s).unwrap();
+
+        //assert!(re.is_match("{}"));
+        Ok(s)
+}
+
+
+fn read_file(filename: &str) -> Result<String, Error> {
+    let mut file = File::open(filename)?;
+    let mut contents = String::new();
+    file.read_to_string(&mut contents)?;
+    Ok(contents)
+}
+
+
+fn parse_os(){
+    let mut file = File::open("/etc/os-release");
+    let mut contents = String::new();
+    let test = fs::read_to_string(&mut contents);
+
+    let package_man_regex = Regex::new(r#"ID_LIKE="(\w+)"#).unwrap();
+
+    let package_man = match package_man_regex.captures_iter(&test).next() {
+            Some(package_man) => Some(package_man.as_str().to_owned()),
+            None => None,
+        },
+        None => None,
+    };
+    println!("{:?}", package_man)
+
+    
+}
+
+
+
+
+
+
+
+
+
 fn main() {
     host_details();
     kernel_details();
@@ -57,6 +115,10 @@ fn main() {
     terminal_details();
     environment_details();
     uptime_details();
+    //os_release();
+    parse_os();
+   // println!("{}", sys_info::LinuxOSReleaseInfo("id_like"))
+
 }
 
 /*TODO

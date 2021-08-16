@@ -8,3 +8,4 @@ edition = "2018"
 [dependencies]
 # nixinfo = "0.2.8"
 nixinfo = { git = "https://github.com/Dam-0/nixinfo" }
+regex = "1"

@@ -50,16 +50,16 @@ fn kernel_details() {
 
 fn main() {
     //let handle = thread::spawn(|| println!("packages No: {}", packages("apt").unwrap()));
-    // package_details();
+    package_details();
     cpu_details();
-    // device_details();
+    device_details();
     distro_details();
-    // gpu_details();
+    gpu_details();
     host_details();
     memory_details();
-    // terminal_details();
-    // uptime_details();
-    // environment_details();
+    terminal_details();
+    uptime_details();
+    environment_details();
     kernel_details();
     // handle.join().unwrap(); 
 }

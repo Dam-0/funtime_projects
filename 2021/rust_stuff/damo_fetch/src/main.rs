@@ -1,65 +1,60 @@
-use nixinfo::{cpu, device, distro, environment, gpu, hostname, kernel, memory, packages, terminal, uptime};
-//use std::thread;
-
-
 fn cpu_details() {
-    println!("cpu name: {}", cpu().unwrap())
-    //println!("cpu temp: {}", nixinfo::temp().unwrap())
+    println!("CPU: {}", nixinfo::cpu().unwrap());
+   // println!("cpu temp: {}", nixinfo::temp().unwrap());
+
 }
 
 fn device_details() {
-    println!("machine: {}", device().unwrap())
+    println!("Machine: {}", nixinfo::device().unwrap())
 }
 
 fn distro_details() {
-    println!("distro: {}", distro().unwrap())
+    println!("Distro: {}", nixinfo::distro().unwrap())
 }
 
 fn gpu_details() {
-    println!("gpu: {}", gpu().unwrap())
+    println!("GPU: {}", nixinfo::gpu().unwrap())
 }
 
 fn host_details() {
-    println!("hostname: {}", hostname().unwrap())
+    println!("Hostname: {}", nixinfo::hostname().unwrap())
 }
 
 fn memory_details() {
-    println!("mem: {}", memory().unwrap())
+    println!("Mem: {}", nixinfo::memory().unwrap())
 }
 
 fn package_details() {
-    println!("packages No: {}", packages("apt").unwrap())
+    println!("Packages No: {}", nixinfo::packages("apt").unwrap())
 }
 
 fn terminal_details() {
-    println!("terminal: {}", terminal().unwrap())
+    println!("Terminal: {}", nixinfo::terminal().unwrap())
 }
 
 fn uptime_details() {
-    println!("uptime: {}", uptime().unwrap())
+    println!("Uptime: {}", nixinfo::uptime().unwrap())
 }
 
 fn environment_details() {
-    println!("de: {}", environment().unwrap())
+    println!("DE: {}", nixinfo::environment().unwrap())
 }
 
 fn kernel_details() {
-    println!("kernal: {}", kernel().unwrap())
+    println!("Kernal: {}", nixinfo::kernel().unwrap())
 }
 
 
 fn main() {
-    //let handle = thread::spawn(|| println!("packages No: {}", packages("apt").unwrap()));
-    package_details();
-    cpu_details();
+    host_details();
+    kernel_details();
     device_details();
     distro_details();
+    cpu_details();
     gpu_details();
-    host_details();
     memory_details();
+    package_details();
     terminal_details();
-    uptime_details();
     environment_details();
-    kernel_details();
-    // handle.join().unwrap(); 
+    uptime_details();
 }

@@ -24,8 +24,8 @@ fn memory_details() {
     println!("Mem: {}", nixinfo::memory().unwrap())
 }
 
-fn package_details() {
-    println!("Packages No: {}", nixinfo::packages("apt").unwrap())
+fn package_details(manager: &str) {
+    println!("Packages No: {}", nixinfo::packages(manager).unwrap())
 }
 
 fn terminal_details() {
@@ -54,7 +54,7 @@ fn main() {
     cpu_details();
     gpu_details();
     memory_details();
-    package_details();
+    package_details("apt");
     terminal_details();
     environment_details();
     uptime_details();

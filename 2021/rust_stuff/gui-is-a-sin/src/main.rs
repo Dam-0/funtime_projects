@@ -2,25 +2,15 @@ use std::{fmt::Result, str};
 use crossterm::{event::DisableMouseCapture, style::Print};
 use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric};
 
-#[path = "../../damo_fetch/src/"]
-mod damo_fetch {
-    mod damo_fetch;
-}
-
-
-
+//#[path = "../../damo_fetch/src/"]
+//mod damo_fetch;
 
 
 fn launch() {
     let menu = menu(vec![
 
-        // label:
-        //  not selectable, usefule as a title, separator, etc...
         label("----------------------"),
         label("Damos GUI menu"),
-        label("use wasd or arrow keys"),
-        label("enter to select"),
-        label("'q' or esc to exit"),
         label("-----------------------"),
 
         
@@ -28,10 +18,10 @@ fn launch() {
             label("Select the appropirate"),
             label("Package manager"),
 
-            list("Manager:", vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"]),
+            list("Manager", vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"]),
 
             button("Launch"),
-           // button(damo_fetch::display_screen()),
+            // button(damo_fetch::display_screen()),
             back_button("back")
 
         ]),
@@ -57,8 +47,11 @@ fn launch() {
     ]);
     run(&menu);
 
-    if  mut_menu(&menu).selected_item_name() == "Damo Fetch" {
-        damo_fetch::display_screen();
+    
+
+    if mut_menu(&menu).get_submenu("Damo Fetch").selected_item_name() == "Launch" {
+        //damo_fetch::display_screen(mut_menu(&menu).get_submenu("Damo Fetch").selection_value("Manager"));
+        println!("{}", mut_menu(&menu).get_submenu("Damo Fetch").selection_value("Manager"))
     }
 
 }

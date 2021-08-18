@@ -54,7 +54,7 @@ fn main() {
     cpu_details();
     gpu_details();
     memory_details();
-    package_details("apt");
+    package_details();
     terminal_details();
     environment_details();
     uptime_details();

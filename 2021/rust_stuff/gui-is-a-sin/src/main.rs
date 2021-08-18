@@ -1,8 +1,8 @@
 use std::{fmt::Result, str};
-use crossterm::style::Print;
+use crossterm::{event::DisableMouseCapture, style::Print};
 use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric};
 
-#[path = "../damo_fetch/src/damo_fetch.rs"]
+#[path = "../../damo_fetch/src/damo_fetch.rs "]
 mod damo_fetch;
 
 

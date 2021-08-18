@@ -6,8 +6,7 @@
  ## GIAS (GUI Is A Sin)
 
 **GIAS** is a terminal gui app that im making because I want to.
-It uses `rust` and `terminal-menu-rs` to achive a gui.
-
+It is written in `rust` as I am learning it.
 
  You can find **GIAS** in the release tab
  or you can compile it yourself, I will not explain
@@ -18,8 +17,8 @@ It uses `rust` and `terminal-menu-rs` to achive a gui.
 
 ### Libraries used
 
-- [terminal-menu-rs] (https://gitlab.com/xamn/terminal-menu-rs)
-- [nixinfo] (https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
+- [terminal-menu-rs](https://gitlab.com/xamn/terminal-menu-rs)
+- [nixinfo](https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
 
 
  ## Compatibilty
@@ -30,5 +29,5 @@ It uses `rust` and `terminal-menu-rs` to achive a gui.
 
 
 ## LICENSE
-All my stuff is licensed under the MIT License. Take a look at the [LICENSE] (https://github.com/Dam-0/Public-Projects/blob/main/LICENSE) for more information.
+All my stuff is licensed under the MIT License. Take a look at the [LICENSE](https://github.com/Dam-0/Public-Projects/blob/main/LICENSE) for more information.
  

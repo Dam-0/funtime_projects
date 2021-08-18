@@ -16,7 +16,7 @@ dat
 *.txt
 *.log
 *.json
-Cargo.lock
+
 
 # Distribution / packaging
 .Python
@@ -36,6 +36,7 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+/target/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -124,8 +125,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-2021/bash_scripts/exploits.txt
-2021/bash_scripts/vulnerabilities.txt
-2021/rust_stuff/starter_programs/Cargo.lock
-2021/rust_stuff/damo_fetch/Cargo.lock
-2021/rust_stuff/damo_fetch/Cargo.lock
+
+Cargo.lock

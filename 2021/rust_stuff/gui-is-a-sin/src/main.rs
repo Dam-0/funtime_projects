@@ -1,5 +1,6 @@
 use std::{fmt::Result, str};
 use crossterm::{event::DisableMouseCapture, style::Print};
+use crossterm::style::Color;
 use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric};
 
 //#[path = "../../damo_fetch/src/"]
@@ -9,11 +10,11 @@ use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_butto
 fn launch() {
     let menu = menu(vec![
 
-        label("----------------------"),
-        label("Damos GUI menu"),
-        label("-----------------------"),
+        label(""),
+        label("GUI Is A Sin").colorize(Color::Red),
+        label("============="),
+        label(""),
 
-        
         submenu("Damo Fetch", vec![
             label(""),
 
@@ -64,3 +65,5 @@ fn main() {
     launch();
     
 }
+
+// Changed Initial Menu

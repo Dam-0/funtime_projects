@@ -3,7 +3,7 @@
  a place where i put my random stuff i make for personal use
 
 
- ## GIAS (GUI As A Sin)
+ ## GIAS (GUI Is A Sin)
 
  You can find **GIAS** in the release tab
  or you can compile it yourself, I wont explain

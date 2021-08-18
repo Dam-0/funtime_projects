@@ -24,8 +24,14 @@ fn memory_details() {
     println!("Mem: {}", nixinfo::memory().unwrap())
 }
 
-fn package_details(manager: &str) {
-    println!("Packages No: {}", nixinfo::packages(manager).unwrap())
+pub fn package_details(manager: &str) {
+    let distro_man= vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"];
+
+    if distro_man.contains(&manager) {
+        println!("Packages No: {}", nixinfo::packages(manager).unwrap())
+    } else {
+        println!("Packages No: N/A");
+    }
 }
 
 fn terminal_details() {
@@ -46,7 +52,7 @@ fn kernel_details() {
 
 
 
-pub fn main() {
+pub fn display_screen(choice: &str) {
     host_details();
     kernel_details();
     device_details();
@@ -54,11 +60,10 @@ pub fn main() {
     cpu_details();
     gpu_details();
     memory_details();
-    package_details();
+    package_details(choice);
     terminal_details();
     environment_details();
     uptime_details();
-
 }
 
 /*TODO

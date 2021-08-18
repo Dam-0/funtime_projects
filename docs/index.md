@@ -7,7 +7,7 @@ I dont why i did this.
 This a repo where i put my things.
 
 
-### GIAS (GUI Is A Sin) ###
+#### GIAS (GUI Is A Sin) ####
 
 **GIAS** is a terminal gui app that im making because I want to.
 It is written in `code(rust)` as I am learning it.
@@ -25,13 +25,13 @@ Current Verrsion `code(0.1)`
 - [nixinfo](https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
 
 
-### Compatibilty
+#### Compatibilty
 
 Most projects/ scripts/ stuff in this mess of a repo has only
 been tested on linux enviroments (Arch, ubuntu).
 I will not be making these work for windows if they dont already because a windows dev enviroments is just #%@$ and is #%@$ to setup.
 
 
-### LICENSE
+#### LICENSE
 All my stuff is licensed under the MIT License. Take a look at the [LICENSE](https://github.com/Dam-0/Public-Projects/blob/main/LICENSE) for more information.
  

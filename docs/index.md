@@ -4,10 +4,10 @@ I dont why i did this.
 
 ## funtime projects
 
-This a repo where i put my things
+This a repo where i put my things.
 
 
-### GIAS (GUI Is A Sin)
+### GIAS (GUI Is A Sin) ###
 
 **GIAS** is a terminal gui app that im making because I want to.
 It is written in `code(rust)` as I am learning it.

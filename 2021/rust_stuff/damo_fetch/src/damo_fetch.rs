@@ -46,7 +46,7 @@ fn kernel_details() {
 
 
 
-fn main() {
+pub fn main() {
     host_details();
     kernel_details();
     device_details();

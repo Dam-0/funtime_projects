@@ -15,17 +15,21 @@ fn launch() {
 
         
         submenu("Damo Fetch", vec![
-            label("Select the appropirate"),
-            label("Package manager"),
+            label(""),
+
+            label("Select a package manager"),
+
+            label(""),
 
             list("Manager", vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"]),
 
             button("Launch"),
             // button(damo_fetch::display_screen()),
+
+            label(""),
             back_button("back")
 
         ]),
-
 
         submenu("Author Details", vec![
             label("My name damo and im cool"),

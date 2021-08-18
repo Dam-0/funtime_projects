@@ -1,37 +1,37 @@
-## Welcome to GitHub Pages
+## Welcome to My Webpage
 
-You can use the [editor on GitHub](https://github.com/Dam-0/Public-Projects/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+I dont why i did this.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## funtime projects
 
-### Markdown
+This a repo where i put my things
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
+ ### GIAS (GUI Is A Sin)
 
-# Header 1
-## Header 2
-### Header 3
+**GIAS** is a terminal gui app that im making because I want to.
+It is written in `rust` as I am learning it.
 
-- Bulleted
-- List
+ You can find **GIAS** in the release tab
+ or you can compile it yourself, I will not explain
+ how to do this (for the time being) because it should be straight forward if you are the type of person that 
+ wants to build from source.
 
-1. Numbered
-2. List
+ Current Verrsion `0.1`
 
-**Bold** and _Italic_ and `Code` text
+#### Libraries used
 
-[Link](url) and ![Image](src)
-```
+- [terminal-menu-rs](https://gitlab.com/xamn/terminal-menu-rs)
+- [nixinfo](https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+ ### Compatibilty
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Dam-0/Public-Projects/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+ Most projects/ scripts/ stuff in this mess of a repo has only
+ been tested on linux enviroments (Arch, ubuntu).
+ I will not be making these work for windows if they dont already because a windows dev enviroments is just #%@$ and is #%@$ to setup.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### LICENSE
+All my stuff is licensed under the MIT License. Take a look at the [LICENSE](https://github.com/Dam-0/Public-Projects/blob/main/LICENSE) for more information.
+ 

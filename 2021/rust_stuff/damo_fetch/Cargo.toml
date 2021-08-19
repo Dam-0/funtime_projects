@@ -1,12 +1,16 @@
 [package]
 name = "damo_fetch"
 version = "0.1.0"
-edition = "2018"
+authors = ["Damien Peters <damien.peters2000@gmail.com>"]
+license = "MIT"
+description = "A system information printer"
+readme = "README.md"
+homepage = "https://github.com/Dam-0/funtime_projects/"
+repository = "https://github.com/Dam-0/funtime_projects/tree/main/2021/rust_stuff/damo_fetch"
+keywords = ["cli"]
+categories = ["command-line-utilities"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-#[[bin]]
-#name = "damo_fetch"
-#path = "src/damo_fetch.rs"
 
 
 [dependencies]

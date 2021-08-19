@@ -1,6 +1,6 @@
-mod damo_fetch;
+mod lib;
 
-
+// Test runs
 fn main () {
-    damo_fetch::display_screen("apk");
+    lib::display_screen("apk");
 }

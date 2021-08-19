@@ -1,26 +1,26 @@
-fn cpu_details() {
+pub fn cpu_details() {
     println!("CPU: {}", nixinfo::cpu().unwrap());
    // println!("cpu temp: {}", nixinfo::temp().unwrap());
 
 }
 
-fn device_details() {
+pub fn device_details() {
     println!("Machine: {}", nixinfo::device().unwrap())
 }
 
-fn distro_details() {
+pub fn distro_details() {
     println!("Distro: {}", nixinfo::distro().unwrap())
 }
 
-fn gpu_details() {
+pub fn gpu_details() {
     println!("GPU: {}", nixinfo::gpu().unwrap())
 }
 
-fn host_details() {
+pub fn host_details() {
     println!("Hostname: {}", nixinfo::hostname().unwrap())
 }
 
-fn memory_details() {
+pub fn memory_details() {
     println!("Mem: {}", nixinfo::memory().unwrap())
 }
 
@@ -34,22 +34,21 @@ pub fn package_details(manager: &str) {
     }
 }
 
-fn terminal_details() {
+pub fn terminal_details() {
     println!("Terminal: {}", nixinfo::terminal().unwrap())
 }
 
-fn uptime_details() {
+pub fn uptime_details() {
     println!("Uptime: {}", nixinfo::uptime().unwrap())
 }
 
-fn environment_details() {
+pub fn environment_details() {
     println!("DE: {}", nixinfo::environment().unwrap())
 }
 
-fn kernel_details() {
+pub fn kernel_details() {
     println!("Kernal: {}", nixinfo::kernel().unwrap())
 }
-
 
 
 pub fn display_screen(choice: &str) {

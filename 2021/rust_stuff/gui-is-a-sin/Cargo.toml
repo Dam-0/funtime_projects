@@ -12,9 +12,12 @@ categories = ["command-line-utilities"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
+[lib]
+name = "damo_fetch"
+path = "../damo_fetch/src/lib.rs"
 
 
 [dependencies]
 terminal-menu = "*"
 crossterm = "0.20.0"
+nixinfo = { git = "https://github.com/Dam-0/nixinfo" }

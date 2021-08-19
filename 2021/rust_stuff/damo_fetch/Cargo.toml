@@ -14,5 +14,5 @@ categories = ["command-line-utilities"]
 
 
 [dependencies]
-nixinfo = "0.3.3"
-#nixinfo = { git = "https://github.com/Dam-0/nixinfo" }
+#nixinfo = "0.3.3"
+nixinfo = { git = "https://github.com/Dam-0/nixinfo" }

@@ -1,8 +1,10 @@
 use std::{fmt::Result, str};
 use crossterm::{event::DisableMouseCapture, style::Print};
 use crossterm::style::Color;
-use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric};
+use terminal_menu::{menu, activate, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric, wait_for_exit};
 
+use damo_fetch::display_screen;
+mod utils;
 
 
 fn launch() {
@@ -23,7 +25,6 @@ fn launch() {
             list("Manager", vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"]),
 
             button("Launch"),
-            // button(damo_fetch::display_screen()),
 
             label(""),
             back_button("back")
@@ -48,15 +49,20 @@ fn launch() {
 
         
     ]);
-    run(&menu);
+    while mut_menu(&menu).selected_item_name() != "Exit" {
+        run(&menu);
 
+        {
+            
+            if mut_menu(&menu).get_submenu("Damo Fetch").selected_item_name() == "Launch" {
+                display_screen(mut_menu(&menu).get_submenu("Damo Fetch").selection_value("Manager"));
+                utils::input_str("");
+                print!("{}[2J", 27 as char)
+            };
+        }
     
 
-    if mut_menu(&menu).get_submenu("Damo Fetch").selected_item_name() == "Launch" {
-        //damo_fetch::display_screen(mut_menu(&menu).get_submenu("Damo Fetch").selection_value("Manager"));
-        println!("{}", mut_menu(&menu).get_submenu("Damo Fetch").selection_value("Manager"))
     }
-
 }
 
 fn main() {

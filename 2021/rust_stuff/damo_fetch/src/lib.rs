@@ -28,7 +28,8 @@ pub fn package_details(manager: &str) {
     let distro_man= vec!["apt", "dpkg", "dnf", "pacman", "rpm", "xbps"];
 
     if distro_man.contains(&manager) {
-        println!("Packages No: {}", nixinfo::packages(manager).unwrap())
+        println!("Packages No: {}", nixinfo::packages(manager).unwrap_or(("N/A").to_string())
+        )
     } else {
         println!("Packages No: N/A");
     }

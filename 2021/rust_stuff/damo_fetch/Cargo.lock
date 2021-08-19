@@ -17,9 +17,8 @@ checksum = "9b919933a397b79c37e33b77bb2aa3dc8eb6e165ad809e58ff75bc7db2e34574"
 
 [[package]]
 name = "nixinfo"
-version = "0.3.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6afc20a5ed5f3e54f94486f9d53b2dff78f3072199fe5995336f8346d3ac7987"
+version = "0.3.2"
+source = "git+https://github.com/Dam-0/nixinfo#2706f4a26a75a2b0119cd57e30062ab2c2a078bd"
 dependencies = [
  "glob",
 ]

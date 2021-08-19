@@ -1,8 +1,15 @@
 use std::io;
 
-//use std::io::Write;
-//std::io::{self, Read};
 use std::str::FromStr;
+use std::io::{stdin, stdout, Read, Write};
+
+// Allows user to pause
+pub fn pause() {
+    let mut stdout = stdout();
+    stdout.write(b"Press Enter to continue...").unwrap();
+    stdout.flush().unwrap();
+    stdin().read(&mut [0]).unwrap();
+}
 
 /// # Input from user
 /// Get some strings from the user

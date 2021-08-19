@@ -2,10 +2,7 @@ use std::{fmt::Result, str};
 use crossterm::{event::DisableMouseCapture, style::Print};
 use crossterm::style::Color;
 use terminal_menu::{menu, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric};
-use std::env;
-
-
-mod damo_fetch;
+use damo_fetch;
 
 
 fn launch() {

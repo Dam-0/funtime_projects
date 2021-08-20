@@ -1,6 +1,4 @@
 use std::process::exit;
-use std::{fmt::Result, str};
-use crossterm::{event::DisableMouseCapture, style::Print};
 use crossterm::style::Color;
 use terminal_menu::{menu, activate, list, label, button, run, mut_menu, scroll, back_button, submenu, string, numeric, wait_for_exit};
 

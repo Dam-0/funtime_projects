@@ -2,6 +2,11 @@
 
 All noteable changes made to `GIAS` will be documented here
 
+## [0.2.1] - 20-9-2021
+
+- Fixed damo_fetch launch bug
+
+
 ## [0.2] - 19-9-2021
 
 - Updated the initial menu title

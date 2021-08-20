@@ -64,12 +64,13 @@ fn launch() {
     // Creats loop to keep the menu up until the user decides to quit
     while mut_menu(&menu).selected_item_name() != "Exit" {
 
-        if mut_menu(&menu).canceled() == true {
-           exit(0)
-
-        }
+       
 
         run(&menu);
+        if mut_menu(&menu).canceled() == true {
+            exit(0)
+ 
+         }
 
         {
                 

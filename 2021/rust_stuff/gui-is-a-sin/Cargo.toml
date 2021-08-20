@@ -1,6 +1,6 @@
 [package]
 name = "gui-is-a-sin"
-version = "0.1.0"
+version = "0.2.1"
 authors = ["Damien Peters <damien.peters2000@gmail.com>"]
 license = "MIT"
 description = "A system information printer"
@@ -19,5 +19,6 @@ path = "../damo_fetch/src/lib.rs"
 
 [dependencies]
 terminal-menu = "*"
+async-std = "1.9.0"
 crossterm = "0.20.0"
 nixinfo = { git = "https://github.com/Dam-0/nixinfo" }

@@ -97,8 +97,3 @@ fn main() {
     launch();
     
 }
-
-// Changed Initial Menu
-// Damo fetch implemented
-// comments added
-// bug: damo_fetch prints again after exit if first launched

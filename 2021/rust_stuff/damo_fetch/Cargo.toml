@@ -1,6 +1,6 @@
 [package]
 name = "damo_fetch"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Damien Peters <damien.peters2000@gmail.com>"]
 license = "MIT"
 description = "A system information printer"
@@ -9,6 +9,7 @@ homepage = "https://github.com/Dam-0/funtime_projects/"
 repository = "https://github.com/Dam-0/funtime_projects/tree/main/2021/rust_stuff/damo_fetch"
 keywords = ["cli"]
 categories = ["command-line-utilities"]
+edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -16,3 +17,4 @@ categories = ["command-line-utilities"]
 [dependencies]
 #nixinfo = "0.3.3"
 nixinfo = { git = "https://github.com/Dam-0/nixinfo" }
+async-std = "*"

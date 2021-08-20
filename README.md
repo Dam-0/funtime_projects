@@ -13,7 +13,7 @@ or you can compile it yourself, I will not explain
 how to do this (for the time being) because it should be straight forward if you are the type of person that 
 wants to build from source.
 
-Current Verrsion `0.1`
+Current Verrsion `0.2.1`
 
 ### Libraries used
 

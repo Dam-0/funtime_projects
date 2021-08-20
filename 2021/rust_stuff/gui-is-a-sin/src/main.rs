@@ -40,6 +40,16 @@ fn launch() {
 
         ]),
 
+        submenu("Calculator", vec![
+
+            list("Method", vec!["+", "-", "*", "/"]),
+            numeric("Num_1", 0.0, None, None, None),
+            numeric("Num_1", 0.0, None, None, None),
+            button("Calculate"),
+            back_button("back")
+
+        ]),
+
         // Creats a sub-menu containing information about the programe author
         submenu("Author Details", vec![
             label("My name damo and im cool"),
@@ -64,14 +74,10 @@ fn launch() {
     // Creats loop to keep the menu up until the user decides to quit
     while mut_menu(&menu).selected_item_name() != "Exit" {
 
-       
-
         run(&menu);
         if mut_menu(&menu).canceled() == true {
             exit(0)
- 
-         }
-
+        }
         {
                 
             if mut_menu(&menu).selected_item_name() != "Exit" {
@@ -86,15 +92,41 @@ fn launch() {
                     // Clears the screen
                     print!("{}[2J", 27 as char)
                 };
+
+                if mut_menu(&menu).get_submenu("Calculator").selected_item_name() == "Calculate" {
+                    //let title = mut_menu(&menu).get_submenu("Calculator");
+
+                    let first_num = mut_menu(&menu).get_submenu("Calculator").numeric_value("Num_1");
+                    let second_num = mut_menu(&menu).get_submenu("Calculator").numeric_value("Num_2");                  
+                    /*let first_num: i32 = user_first_num.trim().parse().ok().unwrap();
+                    let second_num: i32 = user_second_num.trim().parse().ok().unwrap();*/
+            
+                    match mut_menu(&menu).get_submenu("Calculator").selection_value("Method") {
+                        "+" => println!("sum is: {}", first_num + second_num),
+                        "-" => println!("difference is: {}", first_num - second_num),
+                        "*" => println!("Multiply is: {}", first_num * second_num),
+                        "/" => println!("division is: {}", first_num / second_num),
+                        _ => println!("Choose something valid")
+                    }
+                    println!("");
+                    utils::pause();
+                    
+                    // Clears the screen
+                    print!("{}[2J", 27 as char)
+                }
                 
             }
         }
-    
 
     }
 }
+
+
 
 fn main() {
     launch();
     
 }
+
+// damo_fetch 0.2 implemented
+// calculator implemented

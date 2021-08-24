@@ -66,7 +66,7 @@ pub fn display_screen(choice: &str) {
     task::block_on(memory_details());
     task::block_on(package_details(choice));
     task::block_on(terminal_details());
-    task::block_on(environment_details());
+    //task::block_on(environment_details());
     task::block_on(uptime_details());
 }
 

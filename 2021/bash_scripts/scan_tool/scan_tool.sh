@@ -1,5 +1,4 @@
 #!/bin/bash
-
 ip="$1"
 
 # a list of all required packages for script to work

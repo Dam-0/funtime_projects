@@ -36,5 +36,5 @@ fn rand_string() -> String {
 
 
 fn main() {
-    menu::
+    menu::launch();
 }

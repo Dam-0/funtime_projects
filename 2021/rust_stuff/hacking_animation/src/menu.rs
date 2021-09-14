@@ -4,8 +4,6 @@ use terminal_menu::{
     activate, back_button, button, label, list, menu, mut_menu, numeric, run, scroll, string,
     submenu, wait_for_exit,
 };
-
-use damo_fetch::display_screen;
 mod utils;
 
 // Creates function that holes the menus
@@ -94,46 +92,13 @@ fn launch() {
                     print!("{}[2J", 27 as char)
                 };
 
-                if mut_menu(&menu)
-                    .get_submenu("Calculator")
-                    .selected_item_name()
-                    == "Calculate"
-                {
-                    //let title = mut_menu(&menu).get_submenu("Calculator");
-
-                    let first_num = mut_menu(&menu)
-                        .get_submenu("Calculator")
-                        .numeric_value("Num_1");
-                    let second_num = mut_menu(&menu)
-                        .get_submenu("Calculator")
-                        .numeric_value("Num_2");
-                    /*let first_num: i32 = user_first_num.trim().parse().ok().unwrap();
-                    let second_num: i32 = user_second_num.trim().parse().ok().unwrap();*/
-
-                    match mut_menu(&menu)
-                        .get_submenu("Calculator")
-                        .selection_value("Method")
-                    {
-                        "+" => println!("sum is: {}", first_num + second_num),
-                        "-" => println!("difference is: {}", first_num - second_num),
-                        "*" => println!("Multiply is: {}", first_num * second_num),
-                        "/" => println!("division is: {}", first_num / second_num),
-                        _ => println!("Choose something valid"),
-                    }
-                    println!("");
-                    utils::pause();
-
                     // Clears the screen
-                    print!("{}[2J", 27 as char)
+                    //print!("{}[2J", 27 as char)
                 }
             }
         }
     }
-}
 
 fn main() {
     launch();
 }
-
-// damo_fetch 0.2 implemented
-// calculator implemented

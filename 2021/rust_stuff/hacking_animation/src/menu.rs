@@ -16,7 +16,7 @@ pub fn launch() {
         label("============="),
         label(""),
 
-        // Creats a sub-menu containing information about the programe author
+        // Creats a sub-menu containing information about the programe
         submenu(
             "Details",
             vec![

@@ -1,6 +1,4 @@
-import random, time, sys, string, threading, os, queue
-from alive_progress import alive_bar
-
+import random, time, sys, string, os
 
 def repeated_guesses(target):
     chars = string.ascii_letters + string.digits + ' '
@@ -22,6 +20,6 @@ factorial = 13
 if int(password_length) >= 1:
     for i in range (1,int(password_length)+1):
         factorial = factorial * i
-cpu_num = os.cpu_count()
-progress_to_be_done = round(factorial / cpu_num)
-progress_list = [progress_to_be_done] * cpu_num
+progress_to_be_done = round(factorial / 4)
+progress_list = [progress_to_be_done] * 4
+repeated_guesses(password)

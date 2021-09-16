@@ -4,4 +4,5 @@ echo "Enter password"
 
 read -p "> " password
 
-echo $(python )
+python ./password_scrambler.py $password &
+#python ./progress_bar.py $password &

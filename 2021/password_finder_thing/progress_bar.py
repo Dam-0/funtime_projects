@@ -11,38 +11,27 @@ if int(password_length) >= 1:
 progress_to_be_done = round(factorial / 4)
 progress_list = [progress_to_be_done] * 4
 
+pbar1 = tqdm(total=progress_to_be_done, position=4)
+pbar2 = tqdm(total=progress_to_be_done, position=1)
+pbar3 = tqdm(total=progress_to_be_done, position=2)
+pbar4 = tqdm(total=progress_to_be_done, position=3)
 
-if password_length <= 10:
-    pbar1 = tqdm(total=progress_to_be_done, position=0)
-
-    pbar2 = tqdm(total=progress_to_be_done, position=1)
-
-    pbar3 = tqdm(total=progress_to_be_done, position=2)
-
-    pbar4 = tqdm(total=progress_to_be_done, position=3)
-
-    #Set range based on len of password
-
-    for i in range(10000):
-        progress_to_be_done=random.randint(50, 100)
-
-        percent = (0.9 - random.random() % 0.1)
-        new_num = round(progress_to_be_done - (progress_to_be_done * percent))
-        pbar1.update(new_num)
-
-        percent = (0.9 - random.random() % 0.1)
-        new_num = round(progress_to_be_done - (progress_to_be_done * percent))
-        pbar2.update(new_num)
-
-        percent = (0.9 - random.random() % 0.1)
-        new_num = round(progress_to_be_done - (progress_to_be_done * percent))
-        pbar3.update(new_num)
-
-        percent = (0.9 - random.random() % 0.1)
-        new_num = round(progress_to_be_done - (progress_to_be_done * percent))
-        pbar4.update(new_num)
-
-        percent = (0.9 - random.random() % 0.1)
-        new_num = round(progress_to_be_done - (progress_to_be_done * percent))
-        time.sleep(0.001)
-
+#Set range based on len of password
+for i in range(100000):
+    
+    progress_to_be_done=random.randint(50, 100)
+    percent = (0.9 - random.random() % 0.1)
+    new_num = round(progress_to_be_done - (progress_to_be_done * percent))
+    pbar1.update(new_num)
+    percent = (0.9 - random.random() % 0.1)
+    new_num = round(progress_to_be_done - (progress_to_be_done * percent))
+    pbar2.update(new_num)
+    percent = (0.9 - random.random() % 0.1)
+    new_num = round(progress_to_be_done - (progress_to_be_done * percent))
+    pbar3.update(new_num)
+    percent = (0.9 - random.random() % 0.1)
+    new_num = round(progress_to_be_done - (progress_to_be_done * percent))
+    pbar4.update(new_num)
+    percent = (0.9 - random.random() % 0.1)
+    new_num = round(progress_to_be_done - (progress_to_be_done * percent))
+    time.sleep(0.001)

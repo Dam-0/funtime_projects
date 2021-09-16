@@ -8,7 +8,7 @@ def repeated_guesses(target):
             current_guess[count] = random.choice(chars)
             sys.stdout.write(str("\rCracking : "+''.join(current_guess)))
             # slight pause to make readable
-            time.sleep(0.005)
+            time.sleep(0.015)
             sys.stdout.flush()
     print ("\n")
 
@@ -16,7 +16,7 @@ def repeated_guesses(target):
 
 password = (sys.argv[1])
 password_length = len(password)
-factorial = 13
+factorial = 32
 if int(password_length) >= 1:
     for i in range (1,int(password_length)+1):
         factorial = factorial * i

@@ -9,6 +9,7 @@ dat
 # Customs
 *.csv
 .RData
+.bak
 .Rhistory
 *.cleaned
 # C extensions

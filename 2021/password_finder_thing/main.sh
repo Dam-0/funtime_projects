@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "MAIN STUPID THING"
+echo "Password Checker"
 echo
 echo "Enter password"
 
@@ -14,5 +14,7 @@ wait -n
 kill "${pids[@]}" > /dev/null 2>&1
 
 clear
-
-echo "PASSWORD CRACKED"
+echo
+echo
+echo "Your password has been cracked!!"
+echo "The password: $password is not STRONG"

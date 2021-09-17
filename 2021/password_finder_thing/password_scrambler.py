@@ -8,7 +8,7 @@ def repeated_guesses(target):
             current_guess[count] = random.choice(chars)
             sys.stdout.write(str("\rCracking : "+''.join(current_guess)))
             # slight pause to make readable
-            time.sleep(0.015)
+            time.sleep(sleeptime)
             sys.stdout.flush()
     print ("\n")
 
@@ -22,4 +22,6 @@ if int(password_length) >= 1:
         factorial = factorial * i
 progress_to_be_done = round(factorial / 4)
 progress_list = [progress_to_be_done] * 4
+
+sleeptime = (0.030)
 repeated_guesses(password)

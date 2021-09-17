@@ -11,6 +11,9 @@ def repeated_guesses(target):
             time.sleep(sleeptime)
             sys.stdout.flush()
     print ("\n")
+    os.system(tmux kill-server -a)
+
+    
 
 
 
@@ -25,3 +28,9 @@ progress_list = [progress_to_be_done] * 4
 
 sleeptime = (0.030)
 repeated_guesses(password)
+
+#if kill = False:
+#    #os.system(tmux kill-server)
+#    print("1")
+#    pass
+#

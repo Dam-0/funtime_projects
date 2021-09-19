@@ -6,7 +6,7 @@ This a repo where i put my things
 ## GIAS (GUI Is A Sin)
 
 **GIAS** is a terminal gui app that im making because I want to.
-It is written in `rust` as I am learning it.
+It is written in `rust`(🚀) as I am learning it and it is memory safe and blazing fast (🚀).
 
 You can find **GIAS** in the release tab
 or you can compile it yourself, I will not explain
@@ -17,7 +17,7 @@ Current Verrsion `0.2.1`
 
 ### Libraries used
 
-- [terminal-menu-rs](https://gitlab.com/xamn/terminal-menu-rs)
+- [terminal-menu-rs](https://gitlab.com/xamn/terminal-menu-rs) (written in rust (🚀) for memory safety)
 - [nixinfo](https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
 
 

@@ -11,7 +11,7 @@ def repeated_guesses(target):
             time.sleep(sleeptime)
             sys.stdout.flush()
     print ("\n")
-    os.system(tmux kill-server -a)
+    os.system("tmux kill-server")
 
     
 
@@ -26,7 +26,7 @@ if int(password_length) >= 1:
 progress_to_be_done = round(factorial / 4)
 progress_list = [progress_to_be_done] * 4
 
-sleeptime = (0.030)
+sleeptime = (0.050)
 repeated_guesses(password)
 
 #if kill = False:

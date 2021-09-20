@@ -13,12 +13,12 @@ or you can compile it yourself, I will not explain
 how to do this (for the time being) because it should be straight forward if you are the type of person that 
 wants to build from source.
 
-Current Verrsion `0.2.1`
+Current Version `0.2.1`
 
 ### Libraries used
 
 - [terminal-menu-rs](https://gitlab.com/xamn/terminal-menu-rs) (written in rust (🚀) for memory safety)
-- [nixinfo](https://github.com/Dam-0/nixinfo) (I'm using my varitation of this library for purpose of a custom error msg)
+- [nixinfo](https://github.com/Phate6660/nixinfo) (I'm using my varitation of this library)
 
 
 ## Compatibilty

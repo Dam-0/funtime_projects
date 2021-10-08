@@ -4,12 +4,11 @@ use strict;
 
 
 print "Input Number: ";
-my $number = <STDIN>;
-chomp $number;
- 
+chomp( my $number = <STDIN>);
+
 
 print "Your number in binary is: ";
-printf "%b\n", $number;
+printf "%.8b\n", $number;
 
 print "Your number in octal is: ";
 printf "%o\n", $number;
